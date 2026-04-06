@@ -1,6 +1,6 @@
 "use client";
 
-import { ActionsCell } from "@/components/Global Components/Table Components/ActionsCell";
+import { ActionsCell } from "@/components/global-components/Table Components/ActionsCell";
 
 export const incidents_columns = [
     { header: "ID", accessorKey: "public_id" },

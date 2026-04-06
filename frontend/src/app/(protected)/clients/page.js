@@ -1,7 +1,7 @@
 import { buildTitle } from "@/lib/metadata/metadata";
 import { formatDate, formatIncidentStyles } from "@/lib/metadata/format";
 
-import styles from "./Incidents.module.css";
+import styles from "./Clients.module.css";
 
 import Table from "@/components/global-components/Table";
 import TitleCard from "@/components/global-components/TitleCard";
@@ -14,7 +14,7 @@ import { directions } from "@/lib/constants/directions";
 
 export function generateMetadata() {
   return {
-    title: buildTitle("Incidents"),
+    title: buildTitle("Clients"),
   };
 }
 
@@ -27,8 +27,8 @@ function cleanData(data) {
 }
 
 export default async function LicenseAssignmentsPage() {
-  const info_text = "Un <strong>incidente</strong> es el reporte del incidente reportado por el cliente.";
-  const type = "incidents";
+  const info_text = "Un <strong>cliente</strong> es aquel que nos reporta los incidentes.";
+  const type = "client";
   
   const data = await fetchIncidents();
 
@@ -39,9 +39,9 @@ export default async function LicenseAssignmentsPage() {
     <>
       <div className={ styles.incidents }>
         <TitleCard
-          title="Lista de Incidentes"
+          title="Lista de Clientes"
           direction={{
-            Incidentes: directions.Incidents,
+            Clientes: directions.Client,
           }}
         />
 

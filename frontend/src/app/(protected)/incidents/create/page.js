@@ -2,11 +2,11 @@ import { buildTitle } from "@/lib/metadata/metadata";
 
 import styles from "../Incidents.module.css";
 
-import TitleCard from "@/components/Global Components/TitleCard";
-import InfoCard from "@/components/Global Components/InfoCard";
+import TitleCard from "@/components/global-components/TitleCard";
+import InfoCard from "@/components/global-components/InfoCard";
 
 import { directions } from "@/lib/constants/directions";
-import GlobalForm from "@/components/Global Components/GlobalForm";
+import GlobalForm from "@/components/global-components/GlobalForm";
 
 export function generateMetadata() {
     return {

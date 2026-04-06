@@ -1,8 +1,8 @@
 import "@/app/globals.css";
 
-import Header from "@/components/Global Components/Header";
-import Sidebar from "@/components/Global Components/Sidebar";
-import Footer from "@/components/Global Components/Footer";
+import Header from "@/components/global-components/Header";
+import Sidebar from "@/components/global-components/Sidebar";
+import Footer from "@/components/global-components/Footer";
 
 export default function ProtectedLayout({ children }) {
     return (

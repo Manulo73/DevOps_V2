@@ -6,7 +6,7 @@ import { directions } from "@/lib/constants/directions";
 import { incidents_dashboard_columns, incidents_unassigned_dashboard_columns } from "@/lib/constants/columns";
 
 import DashboardTable from "@/components/dashboard/DashboardTable";
-import TitleCard from "@/components/Global Components/TitleCard";
+import TitleCard from "@/components/global-components/TitleCard";
 import { fetchRecentDoneIncidents, fetchTopIncidents, fetchTopUnassignedIncidents } from "@/lib/api/dashboard";
 
 import IncidentForm from "@/components/incidents/IncidentForm";
