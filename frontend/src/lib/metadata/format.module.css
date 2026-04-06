@@ -1,0 +1,58 @@
+.status_open {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.status_progress {
+  background: #fef3c7;
+  color: #b45309;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.status_resolved {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.status_closed {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+
+.priority_low {
+  background: #ecfdf5;
+  color: #047857;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.priority_medium {
+  background: #fef9c3;
+  color: #a16207;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.priority_high {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.priority_critical {
+  background: #7f1d1d;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 700;
+}

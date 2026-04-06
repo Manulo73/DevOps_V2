@@ -1,0 +1,11 @@
+.exportBtn {
+    padding: 2px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background-color: transparent;
+}

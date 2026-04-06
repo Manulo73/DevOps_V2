@@ -1,0 +1,25 @@
+.create_btn {
+    padding: 12px 18px;
+
+    background-color: #F7921E;
+
+    border-radius: 5px;
+    border-width: 0;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 transparent;
+    transition: 150ms ease-in-out;
+}
+
+.create_btn:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #e78618;
+}
+
+.link * {
+    text-decoration: none;  
+    color: white;
+    /* letter-spacing: 1px; */
+    font-weight: bold;
+}

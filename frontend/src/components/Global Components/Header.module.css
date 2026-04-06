@@ -1,0 +1,141 @@
+.header {
+  padding: 10px 0;
+  background: linear-gradient(to right, var(--bg1-lineal), var(--bg2-lineal));
+  color: white;
+
+  height: 25px;
+  min-height: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 96%;
+  top: 0;
+  left: 4%;
+  position: fixed;
+
+  z-index: 1;
+}
+
+.header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header .left_container {
+  width: auto;
+}
+
+.header .right_container {
+  gap: 24px;
+  margin-right: 15px;
+}
+
+.header .logo {
+  margin: 0px 10px;
+}
+
+.header .profile {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.profile_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%; /* just below the image */
+  right: 0;
+  width: 75px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: var(--main);
+  color: var(--dark);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: black;
+}
+
+.dropdown button:hover {
+  color: var(--contrast); /* your accent color */
+}
+
+.notification_bell {
+  position: relative;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 5px;
+  font-weight: bold;
+}
+
+.notifications_dropdown {
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  background: var(--contrast);
+  padding: 12px;
+  border-radius: 8px;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 0 12px rgb(44, 44, 44);
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.notifications_dropdown h4 {
+  margin-bottom: 12px;
+}
+
+.notification_item {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px 0px 0px 0px;
+
+  padding: 12px 10px;
+
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center;
+  gap: 6px;
+}
+
+.notification_item a {
+  color: #00aaff;
+}
+
+.empty {
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+}

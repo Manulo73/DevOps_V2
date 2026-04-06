@@ -1,0 +1,84 @@
+/* Overlay (background dim) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* Modal box */
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+}
+
+.btns button {
+  width: 40%;
+  font-size: 14px;
+  height: 32px;
+
+  border-radius: 4px;
+  border-width: 0px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.title_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: black;
+
+  font-size: 16px;
+  gap: 12px;
+}
+
+.incident_id {
+  color: var(--dark );
+  font-style: italic;
+}
+
+.select_status {
+  width: 100%;
+  height: 32px;
+
+  font-size: 14px;
+  border-color: var(--dark);
+}
+
+.btn_save {
+  background-color: var(--dark);
+}
+
+.btn_cancel {
+  background-color: var(--warning);
+}

@@ -1,0 +1,29 @@
+.btn {
+    position: relative;
+}
+
+.dropdown_menu {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+.cell {
+    padding: 18px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+}
+
+.cell:hover {
+    background-color: var(--background-2);
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}

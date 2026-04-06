@@ -1,0 +1,51 @@
+:root {
+  --background: rgb(250, 250, 250);
+  --background-2: rgb(240, 248, 255);
+
+  --bg1-lineal: #0E2D52;
+  --bg2-lineal: #10519D;
+
+  --main: #F9F7F7;
+  --light: #DBE2EF;
+  --dark: #3F72AF;
+  --contrast: #112D4E;
+
+  --warning: #f7921e;
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure it fills the viewport */
+}
+
+.content-area {
+  display: flex;
+  flex: 1; /* Take all available space before footer */
+  
+  margin-left: 4%;
+  margin-top: 35px;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1; /* Push footer down */
+  padding: 1rem;
+  background: linear-gradient(to right, var(--background), var(--background-2));
+}
