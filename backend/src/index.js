@@ -2,7 +2,9 @@ const cors = require("cors");
 const express = require("express");
 
 const dashboardRoutes = require("./routes/dashboard");
-const incidentRoutes = require("./routes/incidents")
+const incidentRoutes = require("./routes/incidents");
+const clientsRoutes = require("./routes/client");
+const techniciansRoutes = require("./routes/technician");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -48,7 +50,7 @@ app.use(cors({
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     return res.sendStatus(200);
   }
@@ -68,6 +70,8 @@ app.use((req, res, next) => {
 // ─────────────────────────────────────────
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/incidents", incidentRoutes);
+app.use("/api/client", clientsRoutes);
+app.use("/api/technician", techniciansRoutes);
 
 // ─────────────────────────────────────────
 // Start server

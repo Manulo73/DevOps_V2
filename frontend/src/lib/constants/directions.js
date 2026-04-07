@@ -7,5 +7,8 @@ export const directions = {
   Incidents_create: "/incidents/create",
 
   Client: "/clients",
-  Technician: "/technician"
+  Client_create: "/clients/create",
+  
+  Technician: "/technician",
+  Technician_create: "/technician/create"
 };

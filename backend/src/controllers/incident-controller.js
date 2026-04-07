@@ -144,7 +144,7 @@ async function getFormSelectData(req, res, next) {
         public_id,
         full_name AS name
       FROM users
-      WHERE role = 'cliente'
+      WHERE role = 'client'
       ORDER BY full_name
     `);
 
@@ -153,7 +153,7 @@ async function getFormSelectData(req, res, next) {
         public_id,
         full_name AS name
       FROM users
-      WHERE role = 'tecnico'
+      WHERE role = 'technician'
       ORDER BY full_name
     `);
 

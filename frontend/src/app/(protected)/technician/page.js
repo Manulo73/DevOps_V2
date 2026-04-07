@@ -1,5 +1,5 @@
 import { buildTitle } from "@/lib/metadata/metadata";
-import { formatDate, formatIncidentStyles } from "@/lib/metadata/format";
+import { formatDate, formatUserStyles } from "@/lib/metadata/format";
 
 import styles from "./Technician.module.css";
 
@@ -7,9 +7,9 @@ import Table from "@/components/global-components/Table";
 import TitleCard from "@/components/global-components/TitleCard";
 import InfoCard from "@/components/global-components/InfoCard";
 
-import { incidents_columns } from "@/lib/constants/columns";
+import { technician_columns } from "@/lib/constants/columns";
 
-import { fetchIncidents } from "@/lib/api/incident";
+import { fetchTechnicians } from "@/lib/api/technician";
 import { directions } from "@/lib/constants/directions";
 
 export function generateMetadata() {
@@ -22,7 +22,6 @@ function cleanData(data) {
   return data.map(item => ({
     ...item,
     created_at: formatDate(item.created_at),
-    resolved_at: formatDate(item.resolved_at),
   }));
 }
 
@@ -30,10 +29,9 @@ export default async function LicenseAssignmentsPage() {
   const info_text = "Un <strong>técnico</strong> es aquel que resuelve los incidentes";
   const type = "technician";
   
-  const data = await fetchIncidents();
+  const data = await fetchTechnicians();
 
   const clean_data = cleanData(data);
-  const clean_styled_data = formatIncidentStyles(data);
 
   return (
     <>
@@ -47,7 +45,7 @@ export default async function LicenseAssignmentsPage() {
 
         <InfoCard text={ info_text }></InfoCard>
 
-        <Table data={ clean_styled_data } columns={ incidents_columns } type={ type }></Table>
+        <Table data={ clean_data } columns={ technician_columns } type={ type }></Table>
       </div> 
     </>
   );

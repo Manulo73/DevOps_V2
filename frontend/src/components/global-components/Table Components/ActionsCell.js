@@ -5,15 +5,30 @@ import Image from "next/image";
 import { StatusModal } from "./StatusModal";
 import styles from "./ActionsCell.module.css";
 
-export const ActionsCell = ({ row }) => {
+export const ActionsCell = ({ row, type }) => {
   const [open, setOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const incidentId = row.original.public_id;
+  const id = row.original.public_id;
+  const isIncident = type === "incidents";
+
+  let word = "";
+
+  switch ( type ) {
+    case "incidents": 
+        word = "Incidente"
+        break;
+    case "client": 
+        word = "Cliente"
+        break;
+    case "technician": 
+        word = "Técnico"
+        break;
+  }
 
   return (
     <div className={styles.btn}>
-      {/* Button (same icon) */}
+      {/* Button */}
       <button onClick={() => setOpen(!open)}>
         <Image
           src="/icon/edit-3.svg"
@@ -26,30 +41,45 @@ export const ActionsCell = ({ row }) => {
       {/* Dropdown menu */}
       {open && (
         <div className={styles.dropdown_menu}>
-          {/* Go to edit page */}
-          <Link className={styles.link} href={`/incidents/${incidentId}`}>
+          {/* Edit */}
+          <Link className={styles.link} href={`/${type}/${id}`}>
             <div className={styles.cell}>
-              Editar incidente
+              Editar {word}
             </div>
           </Link>
 
-          {/* Open modal */}
-          <div
-            className={styles.cell}
-            onClick={() => {
-              setShowModal(true);
-              setOpen(false);
-            }}
-          >
-            Cambiar estado
-          </div>
+          {/* ONLY for incidents */}
+          {isIncident && (
+            <div
+              className={styles.cell}
+              onClick={() => {
+                setShowModal(true);
+                setOpen(false);
+              }}
+            >
+              Cambiar estado
+            </div>
+          )}
+
+          {/* ONLY for clients & technicians */}
+          {!isIncident && (
+            <div
+              className={styles.cell}
+              onClick={() => {
+                console.log(`Eliminar ${word}`, id);
+                setOpen(false);
+              }}
+            >
+              Eliminar {word}
+            </div>
+          )}
         </div>
       )}
 
-      {/* Modal */}
-      {showModal && (
+      {/* Modal ONLY for incidents */}
+      {isIncident && showModal && (
         <StatusModal
-          incidentId={incidentId}
+          incidentId={id}
           onClose={() => setShowModal(false)}
         />
       )}

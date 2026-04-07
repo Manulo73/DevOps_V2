@@ -7,9 +7,9 @@ import Table from "@/components/global-components/Table";
 import TitleCard from "@/components/global-components/TitleCard";
 import InfoCard from "@/components/global-components/InfoCard";
 
-import { incidents_columns } from "@/lib/constants/columns";
+import { client_columns } from "@/lib/constants/columns";
 
-import { fetchIncidents } from "@/lib/api/incident";
+import { fetchClients } from "@/lib/api/clients";
 import { directions } from "@/lib/constants/directions";
 
 export function generateMetadata() {
@@ -30,7 +30,7 @@ export default async function LicenseAssignmentsPage() {
   const info_text = "Un <strong>cliente</strong> es aquel que nos reporta los incidentes.";
   const type = "client";
   
-  const data = await fetchIncidents();
+  const data = await fetchClients();
 
   const clean_data = cleanData(data);
   const clean_styled_data = formatIncidentStyles(data);
@@ -47,7 +47,7 @@ export default async function LicenseAssignmentsPage() {
 
         <InfoCard text={ info_text }></InfoCard>
 
-        <Table data={ clean_styled_data } columns={ incidents_columns } type={ type }></Table>
+        <Table data={ clean_styled_data } columns={ client_columns } type={ type }></Table>
       </div> 
     </>
   );
