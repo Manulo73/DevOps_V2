@@ -1,0 +1,48 @@
+# dependencies
+node_modules
+.pnp
+.pnp.*
+.yarn
+.yarn/*
+
+# next.js
+.next
+out
+
+# build output
+dist
+build
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env*
+!.env.example
+
+# git
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# misc
+*.pem
+coverage
+
+# typescript
+*.tsbuildinfo
+
+# docker (avoid recursion issues)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+/backend/.dockerignore
+/frontend/.dockerignore

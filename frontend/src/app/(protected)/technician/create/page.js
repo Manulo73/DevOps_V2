@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { buildTitle } from "@/lib/metadata/metadata";
 
 import styles from "../Technician.module.css";

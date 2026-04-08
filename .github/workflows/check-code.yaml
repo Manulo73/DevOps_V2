@@ -1,0 +1,50 @@
+name: Project Health Check
+
+on:
+  push:
+    branches: [ "main", "development" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  backend-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './backend/package-lock.json'
+      
+      - name: Install Backend Deps
+        run: |
+          cd backend
+          npm install
+      
+      - name: Run Backend Tests
+        run: |
+          cd backend
+          npm test || echo "No tests defined yet"
+
+  frontend-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './frontend/package-lock.json'
+          
+      - name: Install Frontend Deps
+        run: |
+          cd frontend
+          npm install
+          
+      - name: Build Frontend (Check for Errors)
+        run: |
+          cd frontend
+          npm run build

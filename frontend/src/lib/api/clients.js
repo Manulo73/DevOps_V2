@@ -1,5 +1,6 @@
-const api_base = process.env.NEXT_PUBLIC_API_BASE;
-const API_BASE = `${api_base}/clients`;
+// const api_base = process.env.NEXT_PUBLIC_API_BASE ?? "http://host.docker.internal:3001/api";
+const api_base = process.env.NEXT_PUBLIC_API_BASE ?? "http://192.168.49.2:3001/api";
+const API_BASE = `${api_base}/client`;
 
 /* ==============================
    GET ALL CLIENTS

@@ -5,6 +5,8 @@ import styles from "./Clients.module.css";
 
 import Table from "@/components/global-components/Table";
 import TitleCard from "@/components/global-components/TitleCard";
+export const dynamic = 'force-dynamic';
+
 import InfoCard from "@/components/global-components/InfoCard";
 
 import { client_columns } from "@/lib/constants/columns";
@@ -22,7 +24,6 @@ function cleanData(data) {
   return data.map(item => ({
     ...item,
     created_at: formatDate(item.created_at),
-    resolved_at: formatDate(item.resolved_at),
   }));
 }
 
@@ -31,9 +32,6 @@ export default async function LicenseAssignmentsPage() {
   const type = "client";
   
   const data = await fetchClients();
-
-  const clean_data = cleanData(data);
-  const clean_styled_data = formatIncidentStyles(data);
 
   return (
     <>
@@ -47,7 +45,7 @@ export default async function LicenseAssignmentsPage() {
 
         <InfoCard text={ info_text }></InfoCard>
 
-        <Table data={ clean_styled_data } columns={ client_columns } type={ type }></Table>
+        <Table data={ data } columns={ client_columns } type={ type }></Table>
       </div> 
     </>
   );

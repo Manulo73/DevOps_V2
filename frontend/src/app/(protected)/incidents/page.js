@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { buildTitle } from "@/lib/metadata/metadata";
 import { formatDate, formatIncidentStyles } from "@/lib/metadata/format";
 

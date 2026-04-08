@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { buildTitle } from "@/lib/metadata/metadata";
 
 import styles from "../Clients.module.css";
@@ -25,7 +27,7 @@ export default function CreateIncidentsPage() {
                 title="Añade un Cliente"
                 direction={{
                     Clientes: `${ directions.Client }`,
-                    Añadir_Cliente: `${ directions.Incidents_create }`,
+                    Añadir_Cliente: `${ directions.Client_create }`,
                 }}
                 />
 

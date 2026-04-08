@@ -1,6 +1,8 @@
+export const dynamic = 'force-dynamic';
+
 import { buildTitle } from "@/lib/metadata/metadata";
 
-import styles from "../Incidents.module.css";
+import styles from "../Technician.module.css";
 
 import TitleCard from "@/components/global-components/TitleCard";
 import InfoCard from "@/components/global-components/InfoCard";

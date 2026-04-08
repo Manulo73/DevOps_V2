@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: my-backend:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3001
+          env:
+            - name: DB_USER
+              value: "TestUser2"
+            - name: DB_PASSWORD
+              value: "123"
+            - name: DB_SERVER
+              value: "mssql-service"
+            - name: DB_DATABASE
+              value: "IncidentManagementDB"
+            - name: DB_PORT
+              value: "1433"
+            - name: JWT_SECRET
+              value: "20R3Nb6tLmJ7mFSNYQR8ePve8OY0jP97"
