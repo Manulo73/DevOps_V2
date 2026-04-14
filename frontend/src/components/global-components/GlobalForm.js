@@ -33,16 +33,15 @@ export default async function GlobalForm({ type, id }) {
   // TECHNICIANS
   // =============================
   if (type === "technician") {
-    const form_data = await fetchTechnicianFormData();
 
     if (id) {
       const data = await fetchTechnicianData(id);
       return (
-        <TechnicianForm form_data={form_data} data={data} />
+        <TechnicianForm data={data} />
       );
     }
 
-    return <TechnicianForm form_data={form_data} />;
+    return <TechnicianForm />;
   }
 
   return null;

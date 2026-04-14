@@ -12,13 +12,14 @@ import {
 import { validateRequired } from "@/lib/common/formFunctions";
 
 export default function TechnicianForm({ data }) {
-
   const formRef = useRef(null);
   const router = useRouter();
 
+  // 1. Dynamic required fields: password is only required if we are NOT editing
   const requiredFields = [
     "full_name",
     "email",
+    ...(!data ? ["password"] : []),
   ];
 
   const getFormValues = () => {
@@ -26,42 +27,49 @@ export default function TechnicianForm({ data }) {
 
     const e = formRef.current.elements;
 
-    return {
+    const values = {
       full_name: e.namedItem("full_name")?.value.trim(),
       email: e.namedItem("email")?.value.trim(),
       is_active: e.namedItem("is_active")?.value === "true",
     };
+
+    // 2. Only grab the password if the input exists (Creation mode)
+    if (!data) {
+      values.password = e.namedItem("password")?.value;
+    }
+
+    return values;
   };
 
   /* =============================
-     CREATE
+      CREATE
   ============================= */
   const handleCreate = async () => {
     const technicianData = getFormValues();
 
-    const { ok, missing } = validateRequired(
-      technicianData,
-      requiredFields
-    );
+    const { ok, missing } = validateRequired(technicianData, requiredFields);
 
     if (!ok) {
       alert(`Falta el campo obligatorio: ${missing}`);
       return;
     }
 
-    await createTechnician(technicianData);
-
-    alert("Técnico creado correctamente");
-    router.push("/technicians");
+    try {
+      await createTechnician(technicianData);
+      alert("Técnico creado correctamente");
+      router.push("/technician");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   /* =============================
-     UPDATE
+      UPDATE
   ============================= */
   const handleUpdate = async () => {
     const technicianData = getFormValues();
 
-    const hasChanges = Object.keys(technicianData).some(key => {
+    const hasChanges = Object.keys(technicianData).some((key) => {
       return (technicianData[key] ?? "") !== (data[key] ?? "");
     });
 
@@ -70,26 +78,25 @@ export default function TechnicianForm({ data }) {
       return;
     }
 
-    const { ok, missing } = validateRequired(
-      technicianData,
-      requiredFields
-    );
+    const { ok, missing } = validateRequired(technicianData, requiredFields);
 
     if (!ok) {
       alert(`Falta el campo obligatorio: ${missing}`);
       return;
     }
 
-    await editTechnician(data.public_id, technicianData);
-
-    alert("Técnico actualizado correctamente");
-    router.push("/technicians");
+    try {
+      await editTechnician(data.public_id, technicianData);
+      alert("Técnico actualizado correctamente");
+      router.push("/technician");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
     <div className={styles.global_form}>
       <form ref={formRef} className={styles.form}>
-
         {/* Full Name */}
         <div className={styles.input_row}>
           <fieldset className={styles.input_field}>
@@ -116,22 +123,33 @@ export default function TechnicianForm({ data }) {
           </fieldset>
         </div>
 
+        {/* 3. Conditional Password Input */}
+        {!data && (
+          <div className={styles.input_row}>
+            <fieldset className={styles.input_field}>
+              <legend>Contraseña</legend>
+              <input
+                name="password"
+                type="password"
+                placeholder="Mínimo 8 caracteres"
+              />
+            </fieldset>
+          </div>
+        )}
+
         {/* Active */}
         <div className={styles.input_row}>
           <fieldset className={styles.input_field}>
             <legend>Estado</legend>
             <select
               name="is_active"
-              defaultValue={
-                data?.is_active === false ? "false" : "true"
-              }
+              defaultValue={data?.is_active === false ? "false" : "true"}
             >
               <option value="true">Activo</option>
               <option value="false">Inactivo</option>
             </select>
           </fieldset>
         </div>
-
       </form>
 
       <div className={styles.btn_container}>
